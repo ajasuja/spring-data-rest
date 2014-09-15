@@ -42,7 +42,7 @@ import com.jayway.jsonpath.JsonPath;
 
 /**
  * Integration tests for MongoDB repositories.
- * 
+ *
  * @author Oliver Gierke
  * @author Greg Turnquist
  */
@@ -161,7 +161,7 @@ public class MongoWebTests extends CommonWebTests {
 
 		MockHttpServletResponse response = patchAndGet(userLink,
 				"[{ \"op\": \"replace\", \"path\": \"/address/zipCode\", \"value\": \"ZIP\" },"
-				// + "{ \"op\": \"replace\", \"path\": \"/lastname\", \"value\": null }]", //
+						// + "{ \"op\": \"replace\", \"path\": \"/lastname\", \"value\": null }]", //
 						+ "{ \"op\": \"remove\", \"path\": \"/lastname\" }]", //
 				RestMediaTypes.JSON_PATCH_JSON);
 

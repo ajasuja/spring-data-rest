@@ -133,7 +133,7 @@ It's possible to have multiple projections.
 
 NOTE: Visit <<spring-data-examples.projections>> to see an example project you can experiment with.
 
-[[projections-excerpts.finding-projections]]
+[[projections-excerpts.projections.finding]]
 === Finding existing projections
 
 Spring Data REST exposes <<metadata.alps>> documents, a micro metadata format. To view the ALPS metadata, follow the `profile` link exposed by the root resource. If you navigate down to the ALPS document for `Person` resources (which would be `/alps/persons`), you can find many details about `Person` resources. Projections will be listed along with the details about the `GET` REST transition, something like this:
@@ -173,7 +173,11 @@ Spring Data REST exposes <<metadata.alps>> documents, a micro metadata format. T
 <3> Further down you can see projection `noAddresses` listed.
 <4> The actual attributes served up by this projection include `firstName` and `lastName`.
 
+<<<<<<< HEAD
 [[projections-excerpts.hidden-data]]
+=======
+[[projections-excerpts.projections.hidden-data]]
+>>>>>>> b2376cc... DATAREST-397 - Add Spring Data REST security doc section
 === Bringing in hidden data
 
 So far, you have seen how projections can be used to reduce the information that is presented to the user. Projections can also bring in normally unseen data. For example, Spring Data REST will ignore fields or getters that are marked up with `@JsonIgnore` annotations. Look at the following domain object:
@@ -214,6 +218,7 @@ If such a projection is created and used, it will side step the `@JsonIgnore` di
 
 IMPORTANT: This example may seem a bit contrived, but it's possible with a richer domain model and many projections, to accidentally leak such details. Since Spring Data REST cannot discern the sensitivity of such data, it is up to the developers to avoid such situations.
 
+<<<<<<< HEAD
 Projections can also generate virtual data. Imagine you had the following entity definition:
 
 [source,java]
@@ -244,6 +249,8 @@ public interface VirtualProjection {
 
 <1> Spring's `@Value` annotation let's you plugin a SpEL expression that takes the target object, and splices together its `firstName` and `lastName` attributes to render a read-only `fullName`.
 
+=======
+>>>>>>> b2376cc... DATAREST-397 - Add Spring Data REST security doc section
 [[projections-excerpts.excerpts]]
 == Excerpts
 
@@ -261,8 +268,13 @@ NOTE: Excerpt projections to a single resource automatically. They have to be ap
 
 In addition to altering the default rendering, excerpts have additional rendering options as shown below.
 
+<<<<<<< HEAD
 [[projections-excerpts.excerpting-commonly-accessed-data]]
 == Excerpting commonly accessed data
+=======
+[[projections-excerpts.excerpts.common-data]]
+=== Excerpting commonly accessed data
+>>>>>>> b2376cc... DATAREST-397 - Add Spring Data REST security doc section
 
 A common situation with REST services arises when you compose domain objects. For example, a `Person` is stored in one table and their related `Address` is stored in another. By default, Spring Data REST will serve up the person's `address` as a URI the client must navigate. But if it's common for consumers to always fetch this extra piece of data, an excerpt projection can go ahead and inline this extra piece of data, saving you an extra `GET`. To do so, let's define another excerpt projection:
 
